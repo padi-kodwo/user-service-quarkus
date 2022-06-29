@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "09f838d9-dac2-4c14-875a-2539012e1df6",
+		"name": "user service",
+		"description": "Please Note: all request keys are snake case",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6159373"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"padiamu@gmail.com\",\n    \"phone\": \"0243936357\",\n    \"firstName\": \"Padi\",\n    \"lastName\": \"Amu\",\n    \"otherNames\": \"Kodwo\",\n    \"dateOfBirth\": \"27-06-2022\",\n    \"password\": \"123456qwert\",\n    \"confirmPassword\": \"123456qwert\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Tenant-Id",
+						"value": "X-Crossfire",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": \"fbc17820-155a-4787-8b99-819c6091a214\",\n        \"phone\": \"0243936357\",\n        \"firstName\": \"Paddi\",\n        \"lastName\": \"Amu\",\n        \"otherNames\": \"Kodwo\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit password",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Tenant-Id",
+						"value": "X-Crossfire",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"fbc17820-155a-4787-8b99-819c6091a214\",\n    \"password\": \"123456qwert\",\n    \"confirmPassword\": \"123456qwert\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/password/reset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"password",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Tenant-Id",
+						"value": "X-Crossfire",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/fbc17820-155a-4787-8b99-819c6091a214",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"fbc17820-155a-4787-8b99-819c6091a214"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by useername",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Tenant-Id",
+						"value": "X-Crossfire",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/username/padiamu@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"username",
+						"padiamu@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Tenant-Id",
+						"value": "X-Crossfire",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"all"
+					],
+					"query": [
+						{
+							"key": "phone",
+							"value": "0243936357",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user by id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Tenant-Id",
+						"value": "X-Crossfire",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{auth-url}}/users/ed92e978-abc4-4ade-9a9e-7ad3b8805eee",
+					"host": [
+						"{{auth-url}}"
+					],
+					"path": [
+						"users",
+						"ed92e978-abc4-4ade-9a9e-7ad3b8805eee"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwib3JnYW5pemF0aW9uIjoia2lrM19hcHAiLCJleHAiOjE2NDc3NjQ4OTksImF1dGhvcml0aWVzIjpbIkFQUCJdLCJqdGkiOiJkZTE5N2JlYy05MGYzLTQ4NjEtYTVkZS1iMTVkNGJiOWJjZTgiLCJjbGllbnRfaWQiOiJraWszX2FwcCJ9.Kxq8ysIxyd8flhMefYZiHQAlHAm8Vdy73Sdt1qePwcxz_BLtqHAHIXsTcVL8Odj4ik5YWFWfR6nW1xM2J0TVm-hiqzMDO65cFi8bFarSyH8SvAHie8QE7x63cFo1ymZEsZrt_pdD1evilv0twWNw781c-_FLiHpcI57WnZbrnobfostMg5FppPGgVwGl56fxGKE-V2H5R3QdEqeOVWOdYwKmju9l4RrxKB8aA7_g8vu1AE4f_386x8pjAppcz3RZUO-e5X80VJF5ZLoChxJ7j3tF5pAKcg3uu2yM1SKlQl7m194fRTJevZ4jLrKtBtWGZls0Zb68vqTI695V2RUBmg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
