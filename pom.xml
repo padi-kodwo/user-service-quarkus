@@ -6,6 +6,7 @@
     <groupId>org.tech11</groupId>
     <artifactId>user-service</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+
     <properties>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <maven.compiler.release>11</maven.compiler.release>
@@ -17,6 +18,7 @@
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
     </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -28,6 +30,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>io.quarkus</groupId>
