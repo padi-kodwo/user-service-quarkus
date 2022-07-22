@@ -34,4 +34,6 @@ public class CreateUser implements Serializable {
     @NotEmpty
     private String lastName;
     private String otherNames;
+
+
 }

@@ -62,7 +62,6 @@ public class UserController {
     }
 
     @GET
-    @Path("all")
     public ApiResponse<List<UserDto>> getAllUsers() {
 
         logger.info("http request: getAllUsers");
